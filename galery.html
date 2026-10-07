@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моё Мишкино | Галерея</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- ШАПКА -->
+    <header class="site-header">
+        <div class="logo-menu">
+            <h1><a href="index.html">Моё Мишкино</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Работа</a></li>
+                    <li><a href="sale.html">Продажи</a></li>
+                    <li><a href="galery.html" class="current-page">Галерея</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="cabinet.html" id="authLink">Личный кабинет</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+            <a href="#" id="openAdFormBtn" class="btn-readmore btn-in-header">📝 Подать новое объявление</a>
+            <button id="authToggleBtn" class="btn-readmore btn-in-header">Войти</button>
+        </div>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="content">
+        
+        <section class="hero hero_galery">
+            <div class="hero-text">
+                <h1>Фотогалерея</h1>
+                <p>Фото свободного фотографа. Сюда можно добавить ваши фотографии.</p>
+                <p>Напишите нам на почту или свяжитесь с нами по телефону.</p>
+            </div>
+        </section>
+
+        <!-- БЛОК С ФОТОГРАФИЯМИ -->
+        <div class="grid-dashboard" style="margin-top: 20px;">
+            
+            <article class="dashboard-widget gallery">
+                <h2>📍 Наши фото</h2>
+                <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center;">
+                    <img src="images/1.png" alt="Фото 1" style="width: 300px; height: auto; object-fit: cover; border-radius: 8px;">
+                    <img src="images/galery/1.jpg" alt="Фото 2" style="width: 300px; height: auto; object-fit: cover; border-radius: 8px;">
+                    <img src="images/galery/2.jpg" alt="Фото 3" style="width: 300px; height: auto; object-fit: cover; border-radius: 8px;">
+                    <img src="images/galery/3.jpg" alt="Фото 4" style="width: 300px; height: auto; object-fit: cover; border-radius: 8px;">
+                </div>
+            </article>
+
+        </div>
+    </main>
+
+     <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="authModal" class="modal"></div>
+
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+        <p>&copy; 2026 "Моё Мишкино". Все права защищены.</p>
+        <button id="footerAuthToggleBtn" class="btn-readmore" style="margin-top: 10px;"></button>
+    </footer>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ (только один раз!) -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- СТИЛИ -->
+    <style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main,
+    .content {
+        flex-grow: 1;
+    }
+
+    .site-footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+    </style>
+
+    <!-- ИНИЦИАЛИЗАЦИЯ (обязательно для всех страниц!) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Обновляем кнопки "Войти/Выйти" в шапке и футере
+        if (typeof updateAuthLinks === 'function') {
+            updateAuthLinks(); 
+        }
+        // Инициализируем форму подачи объявления (если она есть на этой странице)
+        if (typeof setupAdForm === 'function') {
+            setupAdForm(); 
+        }
+    });
+    </script>
+</body>
+</html>

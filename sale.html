@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моё Мишкино — Продажа</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- ШАПКА САЙТА -->
+    <header class="site-header">
+        <div class="logo-menu">
+            <h1><a href="index.html">Моё Мишкино</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Работа</a></li>
+                    <!-- Исправлено: убран инлайн-стиль, добавлен класс -->
+                    <li><a href="sale.html" class="current-page">Продажи</a></li>
+                    <li><a href="galery.html">Галерея</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <!-- Исправлено: добавлен id для управления скриптом -->
+                    <li><a href="cabinet.html" id="authLink">Личный кабинет</a></li>
+                </ul>
+            </nav>
+
+            <!-- Исправлено: добавлен блок с кнопками -->
+            <div class="header-actions">
+                <a href="#" id="openAdFormBtn" class="btn-readmore btn-in-header">📝 Подать новое объявление</a>
+                <button id="authToggleBtn" class="btn-readmore btn-in-header">Войти</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="content">
+        
+        <section class="hero hero_sale">
+            <div class="hero-text">
+                <h1>Продажи и услуги</h1>
+                <p>Покупайте выгодно или продавайте свои излишки соседям.</p>
+            </div>
+        </section>
+
+        <!-- СЕТКА БЛОКОВ -->
+        <div class="grid-dashboard">
+            
+            <!-- БЛОК 1: Товары / Объявления пользователей -->
+            <article class="dashboard-widget news">
+                <h2>📰 Услуги</h2>
+                <ul class="news-list">
+                    <li><strong>Сегодня:</strong> Изготовление дубликатов ключей и ремонт обуви</li>
+                    <li><strong>Вчера:</strong> Ремонт бытовой техники</li>
+                </ul>
+                <!-- Исправлено: закрыт тег <a> -->
+                <a href="#" class="btn-readmore">Все услуги →</a>
+            </article>
+
+            <!-- БЛОК 2: ПРОДАМ ИЗЛИШКИ (КАРТОЧКИ ТОВАРОВ) -->
+            <article class="dashboard-widget ads">
+                <h2>&#128230; Продам излишки</h2>
+                
+                <div class="ad-item">
+                    <div class="ad-item-content"><h3>Дрова колотые</h3></div>
+                    <span class="price">7000 р.</span>
+                </div>
+                
+                <div class="ad-item">
+                    <div class="ad-item-content"><h3>Корм для птицы</h3></div>
+                    <span class="price">1200 ₽</span>
+                </div>
+                
+                <!-- Исправлено: орфографическая ошибка -->
+                <a href="#" class="btn-readmore">Все объявления →</a>
+            </article>
+        </div>
+    </main>
+
+    <!-- МОДАЛЬНОЕ ОКНО (добавлено, чтобы страница соответствовала общей логике) -->
+    <div id="authModal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-btn" id="closeModalBtn">&times;</span>
+            <h2>Подать объявление</h2>
+            <form id="adForm">
+                <div class="form-group">
+                    <label for="adTitle">Название:</label>
+                    <input type="text" id="adTitle" required placeholder="Например: Саженцы яблони">
+                </div>
+                <div class="form-group">
+                    <label for="adPrice">Цена (₽):</label>
+                    <input type="number" id="adPrice" required placeholder="450">
+                </div>
+                <button type="submit" class="btn-readmore">Опубликовать</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+        <p>&copy; 2026 "Моё Мишкино". Все права защищены.</p>
+        <!-- Исправлено: добавлена кнопка в футер -->
+        <button id="footerAuthToggleBtn" class="btn-readmore" style="margin-top: 10px;"></button>
+    </footer>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ (только один раз!) -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- СТИЛИ -->
+    <style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main,
+    .content {
+        flex-grow: 1;
+    }
+
+    .site-footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+    </style>
+
+    <!-- ИНИЦИАЛИЗАЦИЯ (обязательно для всех страниц!) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Обновляем кнопки "Войти/Выйти" в шапке и футере
+        if (typeof updateAuthLinks === 'function') {
+            updateAuthLinks(); 
+        }
+        // Инициализируем форму подачи объявления
+        if (typeof setupAdForm === 'function') {
+            setupAdForm(); 
+        }
+    });
+    </script>
+</body>
+</html>

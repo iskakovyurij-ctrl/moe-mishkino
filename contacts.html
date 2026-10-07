@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моё Мишкино | Контакты</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- 1. ШАПКА САЙТА -->
+    <header class="site-header">
+        <div class="logo-menu">
+            <h1><a href="index.html">Моё Мишкино</a></h1>
+            
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html">Работа</a></li>
+                    <li><a href="sale.html">Продажи</a></li>
+                    <li><a href="galery.html">Галерея</a></li>
+                    <li><a href="contacts.html" class="current-page">Контакты</a></li>
+                    <li><a href="cabinet.html" id="authLink">Личный кабинет</a></li>
+                </ul>
+            </nav>
+
+            <div class="header-actions">
+                <button id="authToggleBtn" class="btn-readmore btn-in-header">Войти</button>
+            </div>
+        </div>
+    </header>
+
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="content">
+
+        <section class="hero contact" style="text-align: center; padding: 10px 20px;">
+            <div class="hero-text">
+                <h2>Для сотрудничества и размещения информации</h2>
+                <p>Чтобы оставить заявку на размещение объявления о продаже, переходите по ссылке в мессенджер.</p>
+                <p>Для сотрудничества с нами отправьте ваше предложение на нашу почту</p>
+                <p>или свяжитесь с нами по телефону:</p>
+            </div>
+        
+            
+        </section>
+        <div style="margin-top: 30px; display: flex; justify-content: space-around; flex-wrap: wrap; gap: 20px;">
+            <div class="dashboard-widget" style="width: 300px; text-align: left;">
+                <h2>Группа МАКС</h2> <p>Официальное сообщество и канал для клиентов и партнеров.                    
+                </p> <a href="https://max.ru/join/a8W5boFb8CZjDptwwNNQdI6zUbhX8ArMoqdcUVD2vCc" class="btn-readmore"> Перейти в MAX </a>
+                <br><strong>Ежедневно с 09:00 до 21:00</strong>
+            </div>
+            
+            <div class="dashboard-widget" style="width: 300px; text-align: left;">
+                <h2>☎️ Телефон</h2>
+                <p><strong>+7 (917) 638-09-89<br>Позвоните нам для сотрудничества!</strong></p>
+            </div>
+            
+            <div class="dashboard-widget" style="width: 300px; text-align: left;">
+                <h2>✉️ Email</h2>
+                <p><strong>itadm25@mail.ru</strong></p>
+            </div>
+        </div>
+    </main>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="authModal" class="modal"></div>
+
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+        <p>&copy; 2026 "Моё Мишкино". Все права защищены.</p>
+        <button id="footerAuthToggleBtn" class="btn-readmore" style="margin-top: 10px;"></button>
+    </footer>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ (только один раз!) -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- СТИЛИ -->
+    <style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main,
+    .content {
+        flex-grow: 1;
+    }
+
+    .site-footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+    </style>
+
+    <!-- ИНИЦИАЛИЗАЦИЯ (обязательно для всех страниц!) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Обновляем кнопки "Войти/Выйти" в шапке и футере
+        if (typeof updateAuthLinks === 'function') {
+            updateAuthLinks(); 
+        }
+        
+        // Инициализируем форму подачи объявления (на этой странице её нет, но функция просто не сработает)
+        if (typeof setupAdForm === 'function') {
+            setupAdForm(); 
+        }
+    });
+    </script>
+</body>
+</html>

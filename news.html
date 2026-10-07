@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Новости — Моё Мишкино</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+<!-- ШАПКА -->
+<header class="site-header">
+    <div class="logo-menu">
+        <h1><a href="index.html">Моё Мишкино</a></h1>
+        <nav class="main-nav">
+            <ul>
+                <li><a href="index.html">Главная</a></li>
+                <li><a href="news.html" class="current-page">Новости</a></li>
+                <li><a href="jobs.html">Работа</a></li>
+                <li><a href="sale.html">Продажи</a></li>
+                <li><a href="galery.html">Галерея</a></li>
+                <li><a href="contacts.html">Контакты</a></li>
+                <li><a href="cabinet.html" id="authLink">Личный кабинет</a></li>
+            </ul>
+        </nav>
+        
+        <div class="header-actions">
+            <a href="#" id="openAdFormBtn" class="btn-readmore btn-in-header">📝 Подать новое объявление</a>
+            <button id="authToggleBtn" class="btn-readmore btn-in-header">Войти</button>
+        </div>
+    </div>
+</header>
+
+<!-- ОСНОВНОЙ КОНТЕНТ -->
+<main class="content">
+    
+    <!-- ГЕРОЙСКИЙ БЛОК -->
+     <!-- СЕТКА БЛОКОВ -->
+    <section class="hero hero_news">
+        <div class="hero-text">
+            <h1>Новости</h1>
+            <p>Последние события из жизни Мишкино и Башкортостана.</p>
+        </div>
+    </section>
+    <div class="dashboard-widget" style="width: 600px; text-align: left;">
+                <h2>📍 Новости дня</h2>
+                <h2>📬 Главные новости</h2>
+            <p>В Башкортостане началась массовая рассылка налоговых уведомлений за 2025 год.</p>
+            <p>Жителям республики начали направлять налоговые уведомления на уплату налогов. 
+                Всего их получат более 2 млн человек. Из них около 1,8 млн — в электронном виде
+                 через портал «Госуслуги» или Личный кабинет на сайте ФНС России.</p>
+                 <h3>Сколько предстоит уплатить</h3>
+            <p>В 2026 году жителям республики нужно будет внести более 8 млрд рублей имущественных налогов:</p>
+            <ul>
+                <li>4 млрд рублей — транспортный налог;</li>
+                <li>3 млрд рублей — налог на имущество физических лиц;</li>
+                <li>более 1 млрд рублей — земельный налог.</li>
+            </ul>
+            <p>Также в уведомления включено более 8 млрд рублей НДФЛ по совокупному доходу за 2025 год.</p>
+
+            <h3>Важные даты</h3>
+            <p>Налоги необходимо уплатить не позднее <strong>1 декабря 2026 года</strong>.</p>
+        </div>
+        <div class="dashboard-widget" style="width: 600px; text-align: right;">
+                <h2>📍 Новости района</h2>
+                <h2>📬 Главные новости</h2>
+            <p>Новость нашего села Мишкино</p>
+            <p>Началась пасмуртная погода</p>
+                 <h3>В дома дали тебло</h3>
+            <p>В 2026 году жителям района будут встречать новогодние праздники:</p>
+            <ul>
+                <li>Дома;</li>
+                <li>В гостях;</li>
+                <li>На работе.</li>
+            </ul>
+            <p>Также в отпуске.</p>
+
+            <h3>Важные даты</h3>
+            <p>Новый год <strong>31 декабря 2026 года</strong>.</p>
+        </div>
+<!--     
+    <div class="grid-dashboard"> -->
+        <!-- БЛОК: НОВОСТИ -->
+        <!-- <article class="dashboard-widget news">
+            <h2>📬 Главные новости</h2>
+            <p>В Башкортостане началась массовая рассылка налоговых уведомлений за 2025 год.</p>
+            <p>Жителям республики начали направлять налоговые уведомления на уплату налогов. Всего их получат более 2 млн человек. Из них около 1,8 млн — в электронном виде через портал «Госуслуги» или Личный кабинет на сайте ФНС России.</p>
+            
+            <h3>Сколько предстоит уплатить</h3>
+            <p>В 2026 году жителям республики нужно будет внести более 8 млрд рублей имущественных налогов:</p>
+            <ul>
+                <li>4 млрд рублей — транспортный налог;</li>
+                <li>3 млрд рублей — налог на имущество физических лиц;</li>
+                <li>более 1 млрд рублей — земельный налог.</li>
+            </ul>
+            <p>Также в уведомления включено более 8 млрд рублей НДФЛ по совокупному доходу за 2025 год.</p>
+
+            <h3>Важные даты</h3>
+            <p>Налоги необходимо уплатить не позднее <strong>1 декабря 2026 года</strong>.</p>
+        </article>
+    </div> -->
+</main>
+
+    <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="authModal" class="modal"></div>
+
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+        <p>&copy; 2026 "Моё Мишкино". Все права защищены.</p>
+        <button id="footerAuthToggleBtn" class="btn-readmore" style="margin-top: 10px;"></button>
+    </footer>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ (только один раз!) -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- СТИЛИ -->
+    <style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main,
+    .content {
+        flex-grow: 1;
+    }
+
+    .site-footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+    </style>
+
+    <!-- ИНИЦИАЛИЗАЦИЯ (обязательно для всех страниц!) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Эта функция обновит текст ссылок на "Войти/Выйти" и "Личный кабинет"
+        if (typeof updateAuthLinks === 'function') {
+            updateAuthLinks();
+        }
+        
+        // Если на странице есть кнопка подачи объявления, инициализируем её
+        if (typeof setupAdForm === 'function') {
+            setupAdForm();
+        }
+    });
+    </script>
+</body>
+</html>

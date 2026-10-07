@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Моё Мишкино | Работа</title>
+    <link rel="stylesheet" href="css/style.css"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <!-- ШАПКА -->
+    <header class="site-header">
+        <div class="logo-menu">
+            <h1><a href="index.html">Моё Мишкино</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <li><a href="news.html">Новости</a></li>
+                    <li><a href="jobs.html" class="current-page">Работа</a></li>
+                    <li><a href="sale.html">Продажи</a></li>
+                    <li><a href="galery.html">Галерея</a></li>
+                    <li><a href="contacts.html">Контакты</a></li>
+                    <li><a href="cabinet.html" id="authLink">Личный кабинет</a></li>
+                </ul>
+            </nav>
+
+           <div class="header-actions">
+            <a href="#" id="openAdFormBtn" class="btn-readmore btn-in-header">📝 Подать новое объявление</a>
+            <button id="authToggleBtn" class="btn-readmore btn-in-header">Войти</button>
+        </div>
+        </div>
+    </header>
+        
+    <!-- ОСНОВНОЙ КОНТЕНТ -->
+    <main class="content">
+    
+        <!-- БЛОК ВАКАНСИИ (ГЕРОЙ) -->
+        <section class="hero_jobs hero-jobs-bg">
+            <div class="hero-text">
+                <h1><strong>Вакансии</strong></h1>
+                <p>Свежие вакансии от работодателя</p>
+            </div>
+        </section>
+
+        <!-- БЛОК СПИСКА ВАКАНСИЙ -->
+        <article class="dashboard-widget jobs">
+            <h2>💼 Работа &#128119</h2>
+            
+            <!-- Элемент 1 -->
+            <div class="job-item">
+                <div class="job-info">
+                    <h3>Требуется водитель</h3>
+                </div>
+                <span class="price">от 30 000 ₽</span>
+            </div>
+        
+            <!-- Элемент 2 -->
+            <div class="job-item">
+                <div class="job-info">
+                    <h3>Агроном-консультант</h3>
+                </div>
+                <span class="price">договорная</span>
+            </div>
+        
+            <a href="#" class="btn-readmore">Откликнуться →</a>
+        </article>
+    </main>
+
+     <!-- МОДАЛЬНОЕ ОКНО -->
+    <div id="authModal" class="modal"></div>
+
+    <!-- Подвал сайта -->
+    <footer class="site-footer">
+        <p>&copy; 2026 "Моё Мишкино". Все права защищены.</p>
+        <button id="footerAuthToggleBtn" class="btn-readmore" style="margin-top: 10px;"></button>
+    </footer>
+
+    <!-- ПОДКЛЮЧЕНИЕ СКРИПТОВ (только один раз!) -->
+    <script src="js/script.js"></script>
+    <script src="js/auth.js"></script>
+
+    <!-- СТИЛИ -->
+    <style>
+    body {
+        display: flex;
+        min-height: 100vh;
+        flex-direction: column;
+    }
+
+    main,
+    .content {
+        flex-grow: 1;
+    }
+
+    .site-footer {
+        background-color: #333;
+        color: white;
+        padding: 1rem;
+        text-align: center;
+    }
+    </style>
+
+    <!-- ИНИЦИАЛИЗАЦИЯ (обязательно для всех страниц!) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Эта функция обновит текст ссылок на "Войти/Выйти" и "Личный кабинет"
+        if (typeof updateAuthLinks === 'function') {
+            updateAuthLinks();
+        }
+        
+        // Если на странице есть кнопка подачи объявления, инициализируем её
+        if (typeof setupAdForm === 'function') {
+            setupAdForm();
+        }
+    });
+    </script>
+</body>
+</html>

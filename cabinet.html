@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>Личный кабинет — Моё Мишкино</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+    <header class="site-header">
+        <div class="logo-menu">
+            <h1><a href="index.html">Моё Мишкино</a></h1>
+            <nav class="main-nav">
+                <ul>
+                    <li><a href="index.html">Главная</a></li>
+                    <!-- Кнопка входа на случай, если пользователь разлогинился -->
+                    <li><a href="login.html" id="loginLink" style="display: none;">Войти</a>
+                    <li><a href="cabinet.html">Кабинет</a></li>
+                    <!-- Сюда auth.js подставит кнопку выхода -->
+                    <li><a href="#" id="logoutLink" style="display: none;">Выйти</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main class="content">
+        <section class="hero">
+            <div class="hero-text">
+                <h1>Личный кабинет</h1>
+                <p id="userGreeting"></p>
+            </div>
+        </section>
+        
+        <div class="grid-dashboard">
+            <article class="dashboard-widget">
+                <h2>Мои данные</h2>
+                <p>Здесь вы можете управлять своими объявлениями и настройками профиля.</p>
+            </article>
+
+            <!-- БЛОК: МОИ ОБЪЯВЛЕНИЯ -->
+            <article class="dashboard-widget ads">
+                <h2>📝 Мои объявления</h2>
+                <div id="myAdsContainer">
+                    <!-- Сюда js/auth.js вставит список ваших объявлений -->
+                </div>
+            </article>
+        </div>
+    </main>
+
+    <footer class="site-footer">
+        <p>&copy; 2026 "Моё Мишкино".</p>
+        <!-- Кнопка входа в футере -->
+        <button id="footerLoginBtn" style="display: none; margin-top: 10px;" class="btn-readmore">Войти</button>
+        <button id="footerLogoutBtn" style="display: none; margin-top: 10px;" class="btn-readmore">Выйти</button>
+    </footer>
+
+    <script src="js/auth.js"></script>
+    
+    <!-- Гарантированный вызов отрисовки кабинета -->
+    <script>
+        // Принудительно запускаем рендер кабинета, если auth.js уже загружен
+        if (typeof renderCabinet === 'function') {
+            renderCabinet();
+        }
+        
+        // Дополнительная страховка для кнопок в футере
+        document.addEventListener('DOMContentLoaded', () => {
+            const footerLogin = document.getElementById('footerLoginBtn');
+            const footerLogout = document.getElementById('footerLogoutBtn');
+            const isAuth = !!localStorage.getItem('mishkino_user_data')?.includes('username');
+
+            if (footerLogin && footerLogout) {
+                if (isAuth) {
+                    footerLogout.style.display = 'block';
+                    footerLogout.onclick = function(){ 
+                        if (typeof logout === 'function') logout(); 
+                        else window.location.href = 'index.html'; 
+                    };
+                } else {
+                    footerLogin.style.display = 'block';
+                    footerLogin.onclick = function(){ window.location.href = 'login.html'; };
+                }
+            }
+        });
+    </script>
+    <script src="js/auth.js"></script>
+    <script src="js/script.js"></script>
+
+    <!-- ИНИЦИАЛИЗАЦИЯ (обязательно для всех страниц!) -->
+    <script>
+    document.addEventListener('DOMContentLoaded', () => {
+        if (typeof updateAuthLinks === 'function') {
+            updateAuthLinks(); 
+        }
+        if (typeof setupAdForm === 'function') {
+            setupAdForm(); 
+        }
+    });
+    </script>
+</body>
+</html>

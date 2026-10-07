@@ -1,0 +1,25 @@
+// {
+//     "version": "0.2.0",
+//     "configurations": [
+//         {
+//             "type": "editor-browser",
+//             "request": "launch",
+//             "name": "Запустить My_mishkino",
+//             "url": "http://my-mishkino.local/", /* или http://localhost/My_mishkino/ */
+//             "webRoot": "${workspaceFolder}"
+//         }
+//     ]
+// }
+// Файл: .vscode/launch.json
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "editor-browser",
+            "request": "launch",
+            "name": "Запуск через XAMPP",
+            "url": "http://my-mishkino.local/",
+            "webRoot": "${workspaceFolder}"
+        }
+    ]
+}
